@@ -4,7 +4,7 @@ Experimenting with docker / circle-ci / etc.
 
 ## Running the app
 
-Building the container:
+Building the image:
 
 - `docker build --tag hello:0.1 .`
 
@@ -14,8 +14,8 @@ To run locally:
 
 ## To Do
 
-- get a build running of the container
-- have the build add the container to a registry
+- get a build running of the image
+- have the build add the image to a registry
 
 ## Questions To Answer
 
