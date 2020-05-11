@@ -10,7 +10,7 @@ Building the image:
 
 To run locally:
 
-- `docker run -d -p 8000:8888 hello:0.1
+- `docker run -d -p 8000:8888 hello:0.1`
 
 ## To Do
 
