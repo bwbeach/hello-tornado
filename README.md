@@ -4,6 +4,10 @@ Experimenting with docker / circle-ci / etc.
 
 ## Running the app
 
+Building the container:
+
+- `docker build --tag hello:0.1 .`
+
 To run locally:
 
 - `docker run -d -p 8000:8888 hello:0.1
