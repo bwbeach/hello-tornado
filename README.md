@@ -2,9 +2,14 @@
 
 Experimenting with docker / circle-ci / etc.
 
+## Running the app
+
+To run locally:
+
+- `docker run -d -p 8000:8888 hello:0.1
+
 ## To Do
 
-- expose the port from the container
 - get a build running of the container
 - have the build add the container to a registry
 
