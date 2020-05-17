@@ -2,15 +2,23 @@
 
 import tornado.ioloop
 import tornado.web
+import unittest
 
+class DummyTest(unittest.TestCase):
+    def test_it(self):
+        pass
+
+    
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello, world\n")
+
 
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
     ])
+
 
 if __name__ == "__main__":
     app = make_app()
