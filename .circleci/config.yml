@@ -23,7 +23,7 @@ jobs:
       - checkout
       - docker/check
       - docker/build:
-          image: bwbeach/hello-tornado
+          image: hello-tornado
 
 workflows:
   main:
