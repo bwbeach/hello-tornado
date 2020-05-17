@@ -24,6 +24,7 @@ jobs:
       - docker/check
       - docker/build:
           image: bwbeach/hello-tornado
+          tag: circle-ci
       - docker/push:
           image: bwbeach/hello-tornado
           tag: circle-ci
