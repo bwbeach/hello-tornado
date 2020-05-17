@@ -22,8 +22,9 @@ To run locally:
 
 ## To Do
 
-- put a docker build badge in here
+- put a circle-ci build badge in here
 - get a build running of the image
+- make the docker push happen only for the master branch
 - have the build add the image to a registry
 
 
