@@ -21,9 +21,6 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - python/load-cache
-      - python/intall-deps
-      - python/save-cache
       - docker/check
       - docker/build:
           image: bwbeach/hello-tornado
