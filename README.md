@@ -22,8 +22,9 @@ To run locally:
 
 ## To Do
 
-- put a docker build badge in here
+- put a circle-ci build badge in here
 - get a build running of the image
+- make the docker push happen only for the master branch
 - have the build add the image to a registry
 
 
@@ -43,3 +44,10 @@ These are the steps I took to get here.
 1. Copy the sample "hello world" tornado app from the tornado docs.
 1. Copy sample Dockerfile from [tornado samples](https://github.com/tornadoweb/tornado/tree/master/demos/blog), and tweak it.
 1. Add a repo on docker.com, link it to this GitHub repo, and enable automatic builds.
+1. Set up a build in CircleCI
+   a. add a project, liked to GitHub
+   a. use standard python template
+   a. create an app token on docker.com
+   a. add DOCKER_LOGIN (set to account name) and DOCKER_PASSWORD (set to app token) environment variables
+   a. add a job to build the docker image
+   a. 

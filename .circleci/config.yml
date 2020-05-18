@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@0.2.1
+  docker: circleci/docker@1.0.1
 
 jobs:
   build-and-test:
@@ -15,7 +16,27 @@ jobs:
           command: python -m unittest hello.py
           name: Test
 
+  build-and-push-docker:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+          image: bwbeach/hello-tornado
+          tag: circle-ci
+      - docker/push:
+          image: bwbeach/hello-tornado
+          tag: circle-ci
+
 workflows:
   main:
     jobs:
       - build-and-test
+      - build-and-push-docker:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+           - build-and-test
