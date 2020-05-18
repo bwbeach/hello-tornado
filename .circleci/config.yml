@@ -24,10 +24,10 @@ jobs:
       - docker/check
       - docker/build:
           image: bwbeach/hello-tornado
-          tag: circle-ci
+          tag: latest
       - docker/push:
           image: bwbeach/hello-tornado
-          tag: circle-ci
+          tag: latest
 
 workflows:
   main:
