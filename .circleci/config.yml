@@ -34,5 +34,8 @@ workflows:
     jobs:
       - build-and-test
       - build-and-push-docker:
+          branches:
+            only:
+              - master
           requires:
            - build-and-test
