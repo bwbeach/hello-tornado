@@ -17,9 +17,15 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("Hello, world\n")
 
 
+class StatusHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write("healthy")
+
+
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
+        (r"/status", StatusHandler)
     ])
 
 

@@ -25,6 +25,8 @@ jobs:
       - docker/build:
           image: bwbeach/hello-tornado
           tag: latest
+      - run:
+          command: ./test-image.sh bwbeach/hello-tornado:latest
       - docker/push:
           image: bwbeach/hello-tornado
           tag: latest
