@@ -14,7 +14,7 @@ jobs:
       - python/save-cache
       - run:
           command: python -m unittest hello.py
-          name: Test
+          name: Unit Test
 
   build-and-push-docker:
     executor: docker/docker
@@ -27,6 +27,7 @@ jobs:
           tag: latest
       - run:
           command: ./test-image.sh bwbeach/hello-tornado:latest
+          name: Image Test
       - docker/push:
           image: bwbeach/hello-tornado
           tag: latest
