@@ -1,5 +1,7 @@
 # hello-tornado
 
+[![bwbeach](https://circleci.com/gh/bwbeach/hello-tornado.svg?style=svg)](https://app.circleci.com/pipelines/github/bwbeach/hello-tornado)
+
 An experiment in using Docker to package and deploy a simple 
 web server.  My goal is to learn a little bit about docker,
 and some modern tools for deploying a docker image in the cloud.
