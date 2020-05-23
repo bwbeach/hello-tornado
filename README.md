@@ -1,6 +1,6 @@
 # hello-tornado
 
-[![bwbeach](https://circleci.com/gh/bwbeach/hello-tornado/master.svg?style=svg)](https://app.circleci.com/pipelines/github/bwbeach/hello-tornado?branch=master)
+[![bwbeach](https://circleci.com/gh/bwbeach/hello-tornado.svg?style=svg&branch=master)](https://app.circleci.com/pipelines/github/bwbeach/hello-tornado?branch=master)
 
 An experiment in using Docker to package and deploy a simple 
 web server.  My goal is to learn a little bit about docker,
