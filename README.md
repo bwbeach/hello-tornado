@@ -27,7 +27,7 @@ To run locally:
 ## To Do
 
 - Figure out how to deploy the image to a container hosted on a cloud service.
-- Figure out how to hook up (Let's Encrypt)[https://letsencrypt.org/]. 
+- Figure out how to hook up [Let's Encrypt](https://letsencrypt.org/). 
 
 ## Questions To Answer
 
@@ -49,4 +49,4 @@ These are the steps I took to get here.
    a. add DOCKER_LOGIN (set to account name) and DOCKER_PASSWORD (set to app token) environment variables
    a. add a job to build the docker image
    a. add a step to run `test-image.sh` on the new image
-   a. add a step to push the image to the (docker.com repository)[https://hub.docker.com/repository/docker/bwbeach/hello-tornado].
+   a. add a step to push the image to the [docker.com repository](https://hub.docker.com/repository/docker/bwbeach/hello-tornado).
