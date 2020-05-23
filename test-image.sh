@@ -17,7 +17,7 @@ echo "Container is: ${container_id}"
 #
 # The server is not ready instantly, so we have to wait
 # until it is.  I've tried these options to curl: --retry 10 --retry-connrefused --retry-delay 1
-# but they still result in a return code of 7 and failure.
+# but they still result in a return code of 7 (fail to connect) and failure.
 #
 
 for n in $(seq 10); do

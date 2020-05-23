@@ -1,6 +1,8 @@
 # hello-tornado
 
-Experimenting with docker / circle-ci / etc.
+An experiment in using Docker to package and deploy a simple 
+web server.  My goal is to learn a little bit about docker,
+and some modern tools for deploying a docker image in the cloud.
 
 ## Running the app
 
@@ -22,19 +24,13 @@ To run locally:
 
 ## To Do
 
-- put a circle-ci build badge in here
-- get a build running of the image
-- make the docker push happen only for the master branch
-- have the build add the image to a registry
-
+- Figure out how to deploy the image to a container hosted on a cloud service.
+- Figure out how to hook up (Let's Encrypt)[https://letsencrypt.org/]. 
 
 ## Questions To Answer
 
-How does one set up a dev environment?  Run in docker, or not?
-
-What's the right phase to run tests?
-
-Is it better to build the image separately from building the software?
+- How does one set up a dev environment?  Run in docker, or not?
+- Is it better to build the image separately from building the software?
 
 ## History
 
@@ -45,9 +41,10 @@ These are the steps I took to get here.
 1. Copy sample Dockerfile from [tornado samples](https://github.com/tornadoweb/tornado/tree/master/demos/blog), and tweak it.
 1. Add a repo on docker.com, link it to this GitHub repo, and enable automatic builds.
 1. Set up a build in CircleCI
-   a. add a project, liked to GitHub
+   a. add a project, linked to GitHub
    a. use standard python template
    a. create an app token on docker.com
    a. add DOCKER_LOGIN (set to account name) and DOCKER_PASSWORD (set to app token) environment variables
    a. add a job to build the docker image
-   a. 
+   a. add a step to run `test-image.sh` on the new image
+   a. add a step to push the image to the (docker.com repository)[https://hub.docker.com/repository/docker/bwbeach/hello-tornado].
