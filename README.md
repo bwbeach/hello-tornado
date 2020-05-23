@@ -14,6 +14,14 @@ To run it:
 - `docker run -d -p 8000:8888 bwbeach/hello-tornado:latest`
 - `curl http://localhost:8000`
 
+## Running the app in the cloud
+
+(This section is in progress.)
+
+The current plan is to run on Google Cloud Run, which has a clear
+[runtime contract](https://cloud.google.com/run/docs/reference/container-contract)
+with the app running in the container. 
+
 ## Building the image by hand
 
 Building the image:
@@ -50,3 +58,4 @@ These are the steps I took to get here.
    a. add a job to build the docker image
    a. add a step to run `test-image.sh` on the new image
    a. add a step to push the image to the [docker.com repository](https://hub.docker.com/repository/docker/bwbeach/hello-tornado).
+1. Deploy to Google Cloud Run, using [their instructions](https://codelabs.developers.google.com/codelabs/cloud-run-deploy)

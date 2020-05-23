@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
+import json
+import os
 import signal
 import tornado.ioloop
 import tornado.web
 import unittest
 
-PORT = 8888
+PORT = os.environ.get('PORT', 8888)
 
 class DummyTest(unittest.TestCase):
     def test_it(self):
@@ -17,6 +19,13 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("Hello, world\n")
 
 
+class EnvironHandler(tornado.web.RequestHandler):
+    def get(self):
+        json_text = json.dumps(dict(os.environ), sort_keys=True, indent=4)
+        self.write(json_text)
+        self.write('\n')
+
+
 class StatusHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("healthy")
@@ -25,6 +34,7 @@ class StatusHandler(tornado.web.RequestHandler):
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
+        (r'/environ', EnvironHandler),
         (r"/status", StatusHandler)
     ])
 
