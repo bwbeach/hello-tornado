@@ -38,6 +38,8 @@ jobs:
           tag: latest
       - run:
           command: |
+            echo ${GOOGLE_CLOUD_KEY} | gcloud auth activate-service-account --key-file=-
+            gcloud auth list
             gcloud config set project hello-tornado
             docker tag bwbeach/hello-tornado:latest us.gcr.io/hello-tornado/hello-tornado:latest
             docker push us.gcr.io/hello-tornado/hello-tornado:latest
