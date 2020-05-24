@@ -91,6 +91,7 @@ These are the steps I took to get here.
          - Storage Admin (see [registry doc](https://cloud.google.com/container-registry/docs/access-control)) 
          - Cloud Run Admin
          - Cloud Run Service Agent
+         - maybe reduce the [deployment permissions](https://cloud.google.com/run/docs/reference/iam/roles#additional-configuration) later
    1. you can test the key like this: `cat key.json | gcloud auth activate-service-account --key-file=-`
    1. `gcloud run services describe hello-tornado --platform managed --region us-west1`
    1. To see the IP address, etc.: `gcloud run services list --platform managed`

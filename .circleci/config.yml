@@ -24,6 +24,9 @@ jobs:
       - setup_remote_docker
       - checkout
       - docker/check
+      # Make sure our key for google cloud is good
+      - run:
+          command: echo ${GOOGLE_CLOUD_KEY} | gcloud auth activate-service-account --key-file=-
       - docker/build:
           image: bwbeach/hello-tornado
           tag: latest
@@ -33,6 +36,12 @@ jobs:
       - docker/push:
           image: bwbeach/hello-tornado
           tag: latest
+      - run:
+          command: |
+            gcloud config set project hello-tornado
+            docker tag bwbeach/hello-tornado:latest us.gcr.io/hello-tornado/hello-tornado:latest
+            docker push us.gcr.io/hello-tornado/hello-tornado:latest
+            gcloud run deploy hello-tornado --image us.gcr.io/hello-tornado/hello-tornado:latest --platform managed --region us-west1
 
 workflows:
   main:
