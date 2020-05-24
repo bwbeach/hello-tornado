@@ -14,13 +14,27 @@ To run it:
 - `docker run -d -p 8000:8888 bwbeach/hello-tornado:latest`
 - `curl http://localhost:8000`
 
-## Running the app in the cloud
+## Running the app in Google Cloud Run
 
 (This section is in progress.)
 
 The current plan is to run on Google Cloud Run, which has a clear
 [runtime contract](https://cloud.google.com/run/docs/reference/container-contract)
-with the app running in the container. 
+with the app running in the container.
+
+The steps to run:
+  - create account and project
+  - download `gcloud` command line tool: `curl https://sdk.cloud.google.com | bash`
+  - `gcloud auth configure-docker`
+  - [push the image](https://cloud.google.com/container-registry/docs/pushing-and-pulling)
+    - `docker tag b21240ed7b12 us.gcr.io/hello-tornado/hello-tornado`
+    - `docker push us.gcr.io/hello-tornado/hello-tornado`
+  - `gcloud run deploy --image=us.gcr.io/hello-tornado/hello-tornado:latest --platform managed` 
+  
+TO DO:
+  - figure out how to push the image from circle-ci to the google registry
+  - figure out how to auto-reload after a push
+  - when gcloud asks about accepting un-authenticated traffic, what does that mean?
 
 ## Building the image by hand
 
