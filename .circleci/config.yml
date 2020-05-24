@@ -17,7 +17,9 @@ jobs:
           name: Unit Test
 
   build-and-push-docker:
-    executor: docker/docker
+    docker:
+      image: google/cloud-sdk:slim
+    # executor: docker/docker
     steps:
       - setup_remote_docker
       - checkout

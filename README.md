@@ -30,10 +30,15 @@ The steps to run:
     - `docker tag b21240ed7b12 us.gcr.io/hello-tornado/hello-tornado`
     - `docker push us.gcr.io/hello-tornado/hello-tornado`
   - `gcloud run deploy --image=us.gcr.io/hello-tornado/hello-tornado:latest --platform managed` 
+  - The app is now available at an [ugly domain name](https://hello-tornado-yd7w2njldq-uw.a.run.app)
+  
+Setting up a custom domain:
+  - Google has [instructions](https://cloud.google.com/endpoints/docs/openapi/dev-portal-setup-custom-domain)
   
 TO DO:
-  - figure out how to push the image from circle-ci to the google registry
+  - figure out how to push the image from circle-ci [to the google registry](https://circleci.com/docs/2.0/google-auth/)
   - figure out how to auto-reload after a push
+  - figure out how to use my own domain name
   - when gcloud asks about accepting un-authenticated traffic, what does that mean?
 
 ## Building the image by hand
