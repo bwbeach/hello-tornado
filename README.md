@@ -23,7 +23,7 @@ an application in a container image, and take care of the rest
 of the deployment issues, including generating a certificate for
 TLS.  (Heroku does all that stuff, but doesn't run docker containers.)
 
-I figured out how to do each step manually, then wrote the YAML for Circly CI
+I figured out how to do each step manually, then wrote the YAML for Circle CI
 to automate it.
 
 ## The Web Server
@@ -214,9 +214,9 @@ Some things need to be set up to get things running:
 
 1. add a project, linked to GitHub
 1. create an app token on docker.com
-1. add DOCKER_LOGIN (set to account name) and DOCKER_PASSWORD (set to app token) environment variables
+1. add `DOCKER_LOGIN` (set to account name) and `DOCKER_PASSWORD` (set to app token) environment variables
 1. create a key at Google Cloud.
-1. add the GOOGLE_CLOUD_KEY environment variable, set to the JSON for the key.
+1. add the `GOOGLE_CLOUD_KEY` environment variable, set to the JSON for the key.
 
 Once those are in place, Circle CI can run `config.yml` do build,
 test, push the image to Docker, push the image and update the
