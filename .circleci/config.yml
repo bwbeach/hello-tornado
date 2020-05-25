@@ -20,6 +20,7 @@ jobs:
     docker:
       - image: google/cloud-sdk:slim
     steps:
+      - checkout
       - setup_remote_docker
       - docker/check
       # Make sure our key for google cloud is good
