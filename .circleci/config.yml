@@ -19,10 +19,8 @@ jobs:
   build-and-push-docker:
     docker:
       - image: google/cloud-sdk:slim
-    # executor: docker/docker
     steps:
       - setup_remote_docker
-      - checkout
       - docker/check
       # Make sure our key for google cloud is good
       - run:
@@ -39,7 +37,6 @@ jobs:
       - run:
           command: |
             echo ${GOOGLE_CLOUD_KEY} | gcloud auth activate-service-account --key-file=-
-            gcloud auth list
             gcloud auth configure-docker
             gcloud config set project hello-tornado
             docker tag bwbeach/hello-tornado:latest us.gcr.io/hello-tornado/hello-tornado:latest

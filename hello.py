@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import json
 import os
 import signal
 import tornado.ioloop
@@ -10,6 +9,11 @@ import unittest
 PORT = os.environ.get('PORT', 8888)
 
 class DummyTest(unittest.TestCase):
+    """
+    Sample unit test, jut to make sure that tests are
+    getting run.  Any class that inherits from TestCase
+    will get run with the unit tests.
+    """
     def test_it(self):
         pass
 
@@ -17,13 +21,6 @@ class DummyTest(unittest.TestCase):
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello, world\n")
-
-
-class EnvironHandler(tornado.web.RequestHandler):
-    def get(self):
-        json_text = json.dumps(dict(os.environ), sort_keys=True, indent=4)
-        self.write(json_text)
-        self.write('\n')
 
 
 class StatusHandler(tornado.web.RequestHandler):
@@ -34,7 +31,6 @@ class StatusHandler(tornado.web.RequestHandler):
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
-        (r'/environ', EnvironHandler),
         (r"/status", StatusHandler)
     ])
 
@@ -45,10 +41,10 @@ def main():
     ioloop = tornado.ioloop.IOLoop.current()
 
     def stop():
-        # Stop listening for more connections, and deregister
+        # Stop listening for more connections, and de-register
         # from the ioloop.
         server.stop()
-        # Stop the ioloop.  Running tasks may still fining.
+        # Stop the ioloop.  Running tasks may still finish.
         ioloop.stop()
 
     def handler(_signum, _stack_frame):
@@ -57,7 +53,6 @@ def main():
         # method in the signal handler.
         ioloop.add_callback_from_signal(stop)
 
-    signal.signal(signal.SIGHUP, handler)
     signal.signal(signal.SIGTERM, handler)
 
     print('listening on port', PORT)
